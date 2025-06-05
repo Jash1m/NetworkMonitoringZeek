@@ -10,9 +10,13 @@ Zeek-Based Network Traffic Monitoring and Analysis
 
 Network Traffic Monitoring Using Zeek and Manual Log Inspection
 
+
 🎯 Objective:
 
-This project focuses on implementing a passive network traffic monitoring system using Zeek (formerly Bro) and manually inspecting logs generated during network activity. It demonstrates how Zeek can identify and log connection attempts, detect unusual behavior, and generate actionable connection metadata.
+This project focuses on implementing a passive network traffic monitoring system using Zeek (formerly Bro) and manually 
+inspecting logs generated during network activity. It demonstrates how Zeek can identify and log connection attempts, detect 
+unusual behavior, and generate actionable connection metadata.
+
 
 🧰 Stack Used:
 
@@ -24,11 +28,14 @@ Netcat — to simulate TCP traffic
 
 VirtualBox — VM environment
 
+
 🏗️ Architecture Overview:
 
 sensor@network-monitoring (192.168.56.20) — runs Zeek and monitors network on interface enp0s8
 
 client@network-monitoring (192.168.56.10) — generates test traffic to simulate real-world scenarios
+
+
 
 🛠️ Setup Steps:
 
@@ -57,6 +64,7 @@ sudo zeek -i enp0s8
 
 This captured real-time traffic to /opt/zeek/logs/<YYYY-MM-DD>/.
 
+
 💣 Traffic Simulation
 
 Performed on Client VM:
@@ -70,6 +78,7 @@ Netcat TCP Simulation:
 echo "Test Zeek capture" | nc 192.168.56.20 9999
 
 These packets were captured and recorded by Zeek in its logs.
+
 
 📂 Logs Analyzed:
 
@@ -98,6 +107,7 @@ Example Output:
 192.168.56.10 → 192.168.56.20:22 (tcp) - REJ
 192.168.56.10 → 192.168.56.20:9999 (tcp) - SF
 
+
 ✅ Outcome:
 
 Successfully deployed Zeek for packet inspection on a virtualized network
@@ -107,6 +117,12 @@ Captured real traffic from client VM to sensor
 Identified patterns and verified the packet metadata using conn.log
 
 Practiced log correlation and interpretation without needing a visualization engine
+
+
+
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 📘 Future Enhancements:
 
@@ -118,6 +134,7 @@ Apply custom Zeek scripts for attack detection (e.g., port scans, brute force)
 
 Setup long-term storage for logs and rotate archives
 
+
 🧠 Learning Benefits:
 
 Understood how Zeek passively observes and logs traffic
@@ -127,6 +144,7 @@ Practiced using real-world tools in a controlled lab
 Interpreted connection logs to infer network behavior
 
 Gained hands-on skills in working with raw log data
+
 
 📂 Artifacts:
 
